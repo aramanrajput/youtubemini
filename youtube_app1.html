@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f1eae3bf56.js" crossorigin="anonymous"></script>
+  </head>
+  <style>
+      *{
+          background-color: white;
+          color: #202020;
+          font-family: sans-serif;
+      }
+      #videos{
+          display: grid;
+          grid-template-columns: auto auto auto ;
+          grid-gap: 10px;
+          height: 1800px;
+          /* border: 2px solid blue; */
+          justify-content: space-evenly;
+          background-color: #f9f9f9
+      }
+      .nav{
+         display: inline-flex;
+          flex-basis: 20% 30% ;
+          width: 100%;
+          height: 50px;
+          /* border: 2px solid red; */
+          border-bottom: 0.5px solid #e5e5e5;
+      }
+      .bar i{
+        
+        width: 20px;
+    font-size: 18px;
+    line-height: 0px;
+    padding: 24px;
+    ;
+      }
+      .logo img{
+        width: 86%;
+    flex-basis: 50px;
+    height: 115%;
+    margin-top: -8px;
+
+          
+      }
+      .logo{
+          /* border: 2px solid green; */
+          flex-basis: 150px;
+      }
+     
+      .search{
+          flex-basis: 600px;
+          /* border: 3px solid black; */
+          margin-left: 50px;
+          padding: 2px;
+          vertical-align: top;
+          margin-top: 3px;
+          color: whitesmoke;
+      }
+      input{
+          width: 520px;
+          height: 30px;
+          border: 1px solid #cccccc;
+          background-color: white;
+          
+      }
+      button{
+        
+    height: 35px;
+    width: 60px;
+    margin-left: -6px;
+    border: 1px solid #cccccc;
+
+       
+        
+      }
+      button i {
+          font-size: 15px;
+          
+      }
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 6% 94%;
+    height: 1200px;
+
+}
+
+
+.sidebar{
+    display: grid;
+    grid-template-rows: 15% 15%  15%  15%   ;
+    height: 800px;
+   
+}
+.sidebar div{
+    /* border: 2px solid blue; */
+    padding: 13px;
+    padding-top: 31px; 
+}
+.sidebar div i{
+    padding-left: 12px;
+    font-size: 24px;
+    margin-left: -3px;
+}
+.sidebar p {
+    margin-top: 4px;
+    font-size: 10px;
+}
+.nav>div:nth-child(4){
+    /* border: 2px solid red; */
+    width: 300px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-evenly;
+    padding-top: 15px;
+}
+.nav>div:nth-child(5)>img{
+    width: 40%;
+    border-radius: 20px;
+    margin-top: 4px;
+}
+.nav>div:nth-child(4)>i{
+    width: 20%;
+    border-radius: 20px;
+}
+
+
+
+
+
+  </style>
+  <body>
+
+<header>
+ <div class="nav">
+        <div class="bar">
+           <i class="fas fa-bars"></i>  
+        </div>
+       <div class="logo">
+    <img src="https://www.theindianwire.com/wp-content/uploads/2017/08/youtube_logo_new_official_1504077880072.jpg" alt="">
+    </div>
+          <div class="search">
+
+            <input type="text" id="query" placeholder="Search " />
+
+            <button onclick="searchVideos()"><i class="fas fa-search"></i></button>
+          </div>  
+
+
+
+          <div>
+            <i class="fas fa-video"></i>
+            <i class="fas fa-th"></i>
+            <i class="far fa-bell"></i>
+
+
+
+          </div>
+          <div>
+              <img src="https://yt3.ggpht.com/yti/APfAmoGF76VAtsbPjEnUyXACewv_2aoZhGCfm6O58Q=s88-c-k-c0x00ffffff-no-rj-mo" alt="">
+          </div>
+    </div>
+
+
+</header>
+
+   
+    
+
+
+
+<div class="container">
+    <div class="sidebar">
+        <div>
+            <yt-icon id="icon" class="guide-icon style-scope ytd-mini-guide-entry-renderer"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 50%; height: 50%;"><g class="style-scope yt-icon"><path d="M4,10V21h6V15h4v6h6V10L12,3Z" class="style-scope yt-icon"></path></g></svg></yt-icon>
+            <p>Home</p>
+        </div>
+        <div>
+            <yt-icon id="icon" class="guide-icon style-scope ytd-mini-guide-entry-renderer"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 50%; height: 50%;"><g class="style-scope yt-icon"><path d="M9.8,9.8l-3.83,8.23l8.23-3.83l3.83-8.23L9.8,9.8z M13.08,12.77c-0.21,0.29-0.51,0.48-0.86,0.54 c-0.07,0.01-0.15,0.02-0.22,0.02c-0.28,0-0.54-0.08-0.77-0.25c-0.29-0.21-0.48-0.51-0.54-0.86c-0.06-0.35,0.02-0.71,0.23-0.99 c0.21-0.29,0.51-0.48,0.86-0.54c0.35-0.06,0.7,0.02,0.99,0.23c0.29,0.21,0.48,0.51,0.54,0.86C13.37,12.13,13.29,12.48,13.08,12.77z M12,3c4.96,0,9,4.04,9,9s-4.04,9-9,9s-9-4.04-9-9S7.04,3,12,3 M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2 L12,2z" class="style-scope yt-icon"></path></g></svg></yt-icon>
+            <p>Explore</p>
+        </div>
+        <div>
+            <yt-icon id="icon" class="guide-icon style-scope ytd-mini-guide-entry-renderer"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 50%; height: 50%;"><g class="style-scope yt-icon"><path d="M10,18v-6l5,3L10,18z M17,3H7v1h10V3z M20,6H4v1h16V6z M22,9H2v12h20V9z M3,10h18v10H3V10z" class="style-scope yt-icon"></path></g></svg></yt-icon>
+            <p style="margin-left: -9px;">Subscriptions</p>
+        </div>
+        <div>
+            <yt-icon id="icon" class="guide-icon style-scope ytd-mini-guide-entry-renderer"><svg viewBox="0 0 26 29" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 50%; height: 50%;"><g class="style-scope yt-icon"><path d="M11,7l6,3.5L11,14V7L11,7z M18,20H4V6H3v15h15V20z M21,18H6V3h15V18z M7,17h13V4H7V17z" class="style-scope yt-icon"></path></g></svg></yt-icon>
+            <p>Library</p>
+        </div>
+        
+    </div>
+     <div id="videos"></div>
+</div>
+   
+  </body>
+</html>
+
+<script>
+
+    let videos = document.getElementById("videos")
+
+async function searchVideos(){
+
+    let query = document.getElementById("query").value
+
+    let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&type=video&key=AIzaSyD_3BeNIgyghj0GHQRlcnVUfBFlbaxa6lE&maxResults=20&regionCode=IN  `)
+
+let data = await res.json()
+console.log(data)
+
+appendVideos(data.items)
+
+
+}
+
+function appendVideos(video_data){
+videos.innerHTML=null;
+    video_data.forEach(({id:{videoId}})=>{
+
+let div = document.createElement("div")
+
+div.innerHTML = `<iframe width="300" height="180" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+div.style.marginTop="20px"
+videos.append(div)
+    })
+}
+
+
+</script>
+

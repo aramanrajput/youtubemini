@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f1eae3bf56.js" crossorigin="anonymous"></script>
+  </head>
+  <style>
+      *{
+          background-color: white;
+          color: #202020;
+          font-family: sans-serif;
+      }
+      #videos{
+          display: grid;
+          grid-template-columns: auto auto auto ;
+          grid-gap: 10px;
+          height: 1800px;
+          /* border: 2px solid blue; */
+          justify-content: space-evenly;
+          background-color: #f9f9f9
+      }
+      .nav{
+         display: inline-flex;
+          flex-basis: 20% 30% ;
+          width: 100%;
+          height: 50px;
+          /* border: 2px solid red; */
+          border-bottom: 0.5px solid #e5e5e5;
+      }
+      .bar i{
+        
+        width: 20px;
+    font-size: 18px;
+    line-height: 0px;
+    padding: 24px;
+    ;
+      }
+      .logo img{
+        width: 86%;
+    flex-basis: 50px;
+    height: 115%;
+    margin-top: -8px;
+
+          
+      }
+      .logo{
+          /* border: 2px solid green; */
+          flex-basis: 150px;
+      }
+     
+      .search{
+          flex-basis: 600px;
+          /* border: 3px solid black; */
+          margin-left: 50px;
+          padding: 2px;
+          vertical-align: top;
+          margin-top: 3px;
+          color: whitesmoke;
+      }
+      input{
+          width: 520px;
+          height: 30px;
+          border: 1px solid #cccccc;
+          background-color: white;
+          
+      }
+      button{
+        
+    height: 35px;
+    width: 60px;
+    margin-left: -6px;
+    border: 1px solid #cccccc;
+
+       
+        
+      }
+      button i {
+          font-size: 15px;
+          
+      }
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 6% 94%;
+    height: 1200px;
+
+}
+
+
+.sidebar{
+    display: grid;
+    grid-template-rows: 15% 15%  15%  15%   ;
+    height: 800px;
+   
+}
+.sidebar div{
+    /* border: 2px solid blue; */
+    padding: 13px;
+    padding-top: 31px; 
+}
+.sidebar div i{
+    padding-left: 12px;
+    font-size: 24px;
+    margin-left: -3px;
+}
+.sidebar p {
+    margin-top: 4px;
+    font-size: 10px;
+}
+.nav>div:nth-child(4){
+    /* border: 2px solid red; */
+    width: 300px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    justify-content: space-evenly;
+    padding-top: 15px;
+}
+.nav>div:nth-child(5)>img{
+    width: 40%;
+    border-radius: 20px;
+    margin-top: 4px;
+}
+.nav>div:nth-child(4)>i{
+    width: 20%;
+    border-radius: 20px;
+}
+
+.modal-container3{
+  background-color: rgba(0,0,0,0.3);
+  position: fixed;
+  top:0;
+  left: 0;
+  padding-top: 200px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+ 
+}
+.modal-container3 input{
+    
+
+    width: 80%;
+    padding-bottom: -13px;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    background-color: white;
+}
+.modal3{
+  background-color: #fff;
+  width: 540px;
+
+
+  padding: 30px 0px;
+  
+ 
+  text-align: center;
+  height: 60%;
+  border-radius: 10px;
+}
+.show{
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.modal-container3 h4{
+  text-align: left;
+  font-size: 20px;
+  margin-left: 55px;
+}
+
+
+
+
+form{
+    border-radius: 25px;
+}
+
+
+
+.modal-container4{
+  background-color: rgba(0,0,0,0.3);
+  position: fixed;
+  top:0;
+  left: 0;
+padding-top: 200px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+ 
+}
+.modal4{
+  background-color: #fff;
+  width: 540px;
+
+ 
+  padding: 30px 0px;
+ 
+  border-radius: 10px;
+  text-align: center;
+  height: 60%;
+}
+.show{
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.modal-container4 h4{
+  text-align: left;
+  font-size: 20px;
+  margin-left: 55px;
+}
+
+
+.modal-container4 input{
+    
+
+    width: 80%;
+    padding-bottom: -13px;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    background-color: white;
+}
+
+
+#open3,#open4{
+    position: relative;
+
+    bottom: 17px;
+}
+
+
+
+
+
+
+  </style>
+  <body>
+
+<header>
+ <div class="nav">
+        <div class="bar">
+           <i class="fas fa-bars"></i>  
+        </div>
+       <div class="logo">
+    <img src="https://www.theindianwire.com/wp-content/uploads/2017/08/youtube_logo_new_official_1504077880072.jpg" alt="">
+    </div>
+          <div class="search">
+
+            <input type="text" id="query" placeholder="Search " />
+
+            <button onclick="searchVideos()"><i class="fas fa-search"></i></button>
+          </div>  
+
+
+
+          <div>
+            <i class="fas fa-video"></i>
+            <i class="fas fa-th"></i>
+            <i class="far fa-bell"></i>
+<p class="admin" id="open3">signup</p>
+<p id="open4">login</p>
+
+
+          </div>
+          <div>
+            <div class="modal-container3" id="modal_container3">
+                <form onsubmit="Signup(event)" id="signup-form">
+          <div class="modal3" >
+              <h1>signup</h1>
+                    <h4 id="message"></h4>
+                 <input type="text" id="name" placeholder="name" />
+                 <input type="text" id="email" placeholder="email" />
+                 <input type="password" id="password" placeholder="password" />
+                 <input type="text" id="username" placeholder="username" />
+                 <input type="text" id="mobile" placeholder="mobile" />
+                 <input type="text" id="description" placeholder="description" />
+                 <input class="close3" type="submit"/>
+          </div>
+                    
+                 
+               </form> 
+              </div>
+
+
+              <div class="modal-container4" id="modal_container4">
+                <form onsubmit="Login(event)" id="login-form">
+                    <div class="modal4">
+<h1>login</h1>
+                    <h4 id="message2"></h4>
+                    <input type="text" id="user" placeholder="username" />
+                 <input type="password" id="pass" placeholder="password" />
+                 
+                
+                 <input id="close4" type="submit" />
+
+                    </div>
+                    
+               </form>
+                            </div>
+          </div>
+    </div>
+
+
+</header>
+
+   
+    
+
+
+
+<div class="container">
+    <div class="sidebar">
+        <div>
+            <yt-icon id="icon" class="guide-icon style-scope ytd-mini-guide-entry-renderer"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 50%; height: 50%;"><g class="style-scope yt-icon"><path d="M4,10V21h6V15h4v6h6V10L12,3Z" class="style-scope yt-icon"></path></g></svg></yt-icon>
+            <p>Home</p>
+        </div>
+        <div>
+            <yt-icon id="icon" class="guide-icon style-scope ytd-mini-guide-entry-renderer"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 50%; height: 50%;"><g class="style-scope yt-icon"><path d="M9.8,9.8l-3.83,8.23l8.23-3.83l3.83-8.23L9.8,9.8z M13.08,12.77c-0.21,0.29-0.51,0.48-0.86,0.54 c-0.07,0.01-0.15,0.02-0.22,0.02c-0.28,0-0.54-0.08-0.77-0.25c-0.29-0.21-0.48-0.51-0.54-0.86c-0.06-0.35,0.02-0.71,0.23-0.99 c0.21-0.29,0.51-0.48,0.86-0.54c0.35-0.06,0.7,0.02,0.99,0.23c0.29,0.21,0.48,0.51,0.54,0.86C13.37,12.13,13.29,12.48,13.08,12.77z M12,3c4.96,0,9,4.04,9,9s-4.04,9-9,9s-9-4.04-9-9S7.04,3,12,3 M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2 L12,2z" class="style-scope yt-icon"></path></g></svg></yt-icon>
+            <p>Explore</p>
+        </div>
+        <div>
+            <yt-icon id="icon" class="guide-icon style-scope ytd-mini-guide-entry-renderer"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 50%; height: 50%;"><g class="style-scope yt-icon"><path d="M10,18v-6l5,3L10,18z M17,3H7v1h10V3z M20,6H4v1h16V6z M22,9H2v12h20V9z M3,10h18v10H3V10z" class="style-scope yt-icon"></path></g></svg></yt-icon>
+            <p style="margin-left: -9px;">Subscriptions</p>
+        </div>
+        <div>
+            <yt-icon id="icon" class="guide-icon style-scope ytd-mini-guide-entry-renderer"><svg viewBox="0 0 26 29" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 50%; height: 50%;"><g class="style-scope yt-icon"><path d="M11,7l6,3.5L11,14V7L11,7z M18,20H4V6H3v15h15V20z M21,18H6V3h15V18z M7,17h13V4H7V17z" class="style-scope yt-icon"></path></g></svg></yt-icon>
+            <p>Library</p>
+        </div>
+        
+    </div>
+     <div id="videos"></div>
+</div>
+   
+  </body>
+</html>
+
+<script>
+
+    let videos = document.getElementById("videos")
+
+async function searchVideos(){
+
+    let query = document.getElementById("query").value
+
+    let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&type=video&key=AIzaSyD_3BeNIgyghj0GHQRlcnVUfBFlbaxa6lE&maxResults=20&regionCode=IN  `)
+
+let data = await res.json()
+console.log(data)
+
+appendVideos(data.items)
+
+
+}
+
+function appendVideos(video_data){
+videos.innerHTML=null;
+    video_data.forEach(({id:{videoId}})=>{
+
+let div = document.createElement("div")
+
+div.innerHTML = `<iframe width="300" height="180" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+div.style.marginTop="20px"
+videos.append(div)
+    })
+}
+
+async function searchPopular(){
+
+    
+
+let res = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&key=AIzaSyD_3BeNIgyghj0GHQRlcnVUfBFlbaxa6lE&maxResults=20`)
+
+let data = await res.json()
+console.log(data.items)
+appendPopular(data.items)
+}
+searchPopular()
+
+
+
+
+function appendPopular(videos_){
+    videos.innerHTML=null;
+    videos_.forEach(function(video){
+videoId = video.id
+let div = document.createElement("div")
+
+div.innerHTML = `<iframe width="300" height="280" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+div.style.marginTop="20px"
+videos.append(div)
+    })
+
+}
+
+
+let open3 = document.getElementById("open3")
+   let close3 = document.querySelector(".close3")
+   let modal3 = document.getElementById("modal_container3")
+   
+   open3.addEventListener("click",()=>{
+     modal3.classList.add("show")
+     console.log("hello")
+   })
+   close3.addEventListener("click",()=>{
+     modal3.classList.remove("show")
+   })
+
+
+
+   let open4 = document.getElementById("open4")
+   let close4 = document.getElementById("close4")
+   let modal4 = document.getElementById("modal_container4")
+   
+   open4.addEventListener("click",()=>{
+     modal4.classList.add("show")
+     console.log("hello")
+   })
+   close4.addEventListener("click",()=>{
+     modal4.classList.remove("show")
+   })
+
+   var admin = document.querySelector(".admin")
+
+   
+function Signup(e){
+    e.preventDefault();
+
+    let form =document.getElementById("signup-form")
+
+    let user_data = {
+        name:form.name.value,
+        email:form.email.value,
+        password:form.password.value,
+        username:form.username.value,
+        mobile:form.mobile.value,
+        description:form.description.value,
+    }
+    // console.log(user_data)
+let nm = user_data.name
+  
+
+  user_data = JSON.stringify(user_data)
+
+
+
+
+
+
+
+
+
+fetch("https://masai-api-mocker.herokuapp.com/auth/register",{
+
+method:"POST",
+
+body:user_data,
+
+headers:{
+"Content-Type": "application/json",
+},
+
+
+})  
+.then((res) =>{
+    return res.json();
+})
+.then((res) =>{
+     console.log(res)
+     if(res.error==false){
+      admin.textContent = nm 
+      message.style.margin="0"
+      message.textContent = "sign up sucessfull"
+     }
+     else{
+       message.style.color = "red"
+       message.style.margin="0"
+      message.textContent = "sign up failed"
+
+     }
+   
+
+
+})
+.catch((err)=>{
+   console.log(err) 
+   
+})
+}
+let message2 = document.getElementById("message2")
+
+
+function Login(e){
+    e.preventDefault();
+
+let form =document.getElementById("login-form")
+
+let user_data = {
+    username:form.user.value,
+    password:form.pass.value,
+    
+   
+}
+let lu = user_data.username
+let data_to_send = JSON.stringify(user_data)
+console.log(data_to_send) 
+
+fetch("https://masai-api-mocker.herokuapp.com/auth/login",{
+
+method:"POST",
+
+body:data_to_send,
+
+headers:{
+"Content-Type": "application/json",
+},
+
+
+})  
+.then((res) =>{
+    return res.json();
+})
+.then((res) =>{
+    console.log(res)
+    if(res.error==false){
+      admin.textContent =lu 
+      message2.style.margin="0"
+      message2.style.textAlign = "center"
+      message2.style.color = "green"
+      message2.textContent = "log in sucessfull"
+     }
+     else{
+      admin.textContent =""
+      message2.style.textAlign = "center"
+      message2.style.margin="0"
+      message2.style.color = "red"
+      message2.textContent = "log in unsucessfull"
+     }
+})
+
+
+
+
+
+.catch((err)=>{
+  console.log(err)  
+})
+
+
+
+}
+
+
+
+
+</script>
